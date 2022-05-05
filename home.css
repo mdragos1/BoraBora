@@ -1,8 +1,24 @@
+body{
+  background-color: rgb(20, 19, 19);
+  margin: 0;
+}
+
 .header {
-    padding: 80px; /* some padding */
-    text-align: center; /* center the text */
-    background: #1abc9c; /* green background */
-    color: white; /* white text color */
+    padding: 1em; /* some padding */
+    text-align: center;
+    background: hsl(0, 78%, 23%); /* green background */
+    color: 	rgb(255,215,0); /* white text color */
+    font-family: Arial, Helvetica, sans-serif;
+    padding-bottom: 2em;
+}
+.header>h2 {
+  margin-top: 1.5em;
+}
+.header>img{
+  float: left;
+  margin-top: 0%;
+  width: 10%;
+  min-width: 100px;
 }
 
 .header h1 {
@@ -12,7 +28,7 @@
 /* Style the top navigation bar */
 .navbar {
   overflow: hidden; /* Hide overflow */
-  background-color: #333; /* Dark background color */
+  background-color: rgb(16, 15, 15); /* Dark background color */
 }
 
 /* Style the navigation bar links */
@@ -34,4 +50,51 @@
 .navbar a:hover {
   background-color: #ddd; /* Grey background color */
   color: black; /* Black text color */
+}
+
+/* Ensure proper sizing */
+* {
+  box-sizing: border-box;
+}
+
+/* Column container */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* Create two unequal columns that sits next to each other */
+/* Sidebar/left column */
+.side {
+  flex: 30%; /* Set the width of the sidebar */
+  background-color: #f1f1f1; /* Grey background color */
+  padding: 20px; /* Some padding */
+}
+
+/* Main column */
+.main {
+  flex: 70%; /* Set the width of the main content */
+  background-color: white; /* White background color */
+  padding: 20px; /* Some padding */
+}
+
+/* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 700px) {
+  .row {
+    flex-direction: column;
+  }
+}
+
+/* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+@media screen and (max-width: 400px) {
+  .navbar a {
+    float: none;
+    width: 100%;
+  }
+}
+.footer {
+  padding: 20px; /* Some padding */
+  text-align: center; /* Center text*/
+  background: hsl(0, 78%, 23%); /* Grey background */
+  color: 	rgb(255,215,0);
 }

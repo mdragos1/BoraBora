@@ -67,14 +67,14 @@ body{
 /* Sidebar/left column */
 .side {
   flex: 30%; /* Set the width of the sidebar */
-  background-color: #f1f1f1; /* Grey background color */
+  background-color: #000000; /* Grey background color */
   padding: 20px; /* Some padding */
 }
 
 /* Main column */
 .main {
   flex: 70%; /* Set the width of the main content */
-  background-color: white; /* White background color */
+  background-color: rgb(0, 0, 0); /* White background color */
   padding: 20px; /* Some padding */
 }
 

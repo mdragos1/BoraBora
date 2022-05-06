@@ -44,5 +44,10 @@ function init(){
 
     const prev = document.getElementById("prev");
     prev.addEventListener('click', function(){plusSlides(-1);});
+
+    const dots = document.getElementsByClassName("dot");
+    for(let i = 0; i<dots.length; i++){
+        dots[i].addEventListener('click', function(){currentSlide(i+1);});
+    }
 }
  window.onload = init;

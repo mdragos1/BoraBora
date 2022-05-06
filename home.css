@@ -36,7 +36,7 @@ body{
 
 .navbar {
   overflow: hidden;
-  background-color: rgb(16, 15, 15); 
+  background-color:hsl(0, 78%, 23%); 
   position: sticky;
   top: 0%;
 }
@@ -45,7 +45,7 @@ body{
 .navbar a {
   float: left;
   display: block; 
-  color: white;
+  color: rgb(255,215,0);
   text-align: center; 
   padding: 14px 20px;
   text-decoration: none; 
@@ -72,8 +72,12 @@ body{
 
 .side {
   flex: 30%; 
-  background-color: #000000; 
+  color: #ffffff; 
+  background-color: black;
   padding: 20px; 
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 22px;
 }
 
 

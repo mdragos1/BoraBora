@@ -9,6 +9,7 @@
     <title>Bora Bora</title>
 </head>
 <body>
+    
     <div class="header">
         <img src="logo.png" alt="logo">
         <h2>Probably the best manele club in the world.</h2>
@@ -26,25 +27,43 @@
         <div class="side">...</div>
         <div class="main">
             <div class="slideshow">
-                <div class="slides">
+                <div class="slides fade">
                     <img src="img1.jpg" alt="poza1">
-                    <div class="number">1 / 2</div>
+                    <div class="number">1 / 5</div>
                 </div>
-                <div class="slides">
+                <div class="slides fade">
                     <img src="img2.jpg" alt="poza2">
-                    <div class="number">2 / 2</div>
+                    <div class="number">2 / 5</div>
                 </div>
-                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                <div class="slides fade">
+                    <img src="img3.jpg" alt="poza3">
+                    <div class="number">3 / 5</div>
+                </div>
+                <div class="slides fade">
+                    <img src="img4.jpg" alt="poza4">
+                    <div class="number">4 / 5</div>
+                </div>
+                <div class="slides fade">
+                    <img src="img5.jpg" alt="poza5">
+                    <div class="number">5 / 5</div>
+                </div>
+                <a id="prev" >&#10094;</a>
+                <a id="next" >&#10095;</a>
             </div>
             <div style="text-align:center">
                 <span class="dot" onclick="currentSlide(1)"></span>
                 <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+                <span class="dot" onclick="currentSlide(4)"></span>
+                <span class="dot" onclick="currentSlide(5)"></span>
             </div>
         </div>
     </div>
     <div class="footer">
-        <h2>Footer</h2>
+        <p>© Copyright 2022  |  Bora Bora |  Toate Drepturile Rezervate  | Politica de confidentialitate </p>
+        <a href="https://www.facebook.com/boraboranightclub">
+             <img src="facebookicon.png" alt="logoFacebook">
+            </a>
     </div>
 </body>
 </html>

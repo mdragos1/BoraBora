@@ -4,10 +4,10 @@ body{
 }
 
 .header {
-    padding: 1em; /* some padding */
+    padding: 1em; 
     text-align: center;
-    background: hsl(0, 78%, 23%); /* green background */
-    color: 	rgb(255,215,0); /* white text color */
+    background: hsl(0, 78%, 23%); 
+    color: 	rgb(255,215,0); 
     font-family: Arial, Helvetica, sans-serif;
     padding-bottom: 2em;
 }
@@ -25,67 +25,61 @@ body{
   font-size: 40px;
 }
 
-/* Style the top navigation bar */
+
 .navbar {
-  overflow: hidden; /* Hide overflow */
-  background-color: rgb(16, 15, 15); /* Dark background color */
+  overflow: hidden;
+  background-color: rgb(16, 15, 15); 
 }
 
-/* Style the navigation bar links */
+
 .navbar a {
-  float: left; /* Make sure that the links stay side-by-side */
-  display: block; /* Change the display to block, for responsive reasons (see below) */
-  color: white; /* White text color */
-  text-align: center; /* Center the text */
-  padding: 14px 20px; /* Add some padding */
-  text-decoration: none; /* Remove underline */
+  float: left;
+  display: block; 
+  color: white;
+  text-align: center; 
+  padding: 14px 20px;
+  text-decoration: none; 
 }
 
-/* Right-aligned link */
 .navbar a.right {
-  float: right; /* Float a link to the right */
+  float: right; 
 }
 
-/* Change color on hover/mouse-over */
 .navbar a:hover {
-  background-color: #ddd; /* Grey background color */
-  color: black; /* Black text color */
+  background-color: #ddd; 
+  color: black; 
 }
 
-/* Ensure proper sizing */
 * {
   box-sizing: border-box;
 }
 
-/* Column container */
 .row {
   display: flex;
   flex-wrap: wrap;
 }
 
-/* Create two unequal columns that sits next to each other */
-/* Sidebar/left column */
+
 .side {
-  flex: 30%; /* Set the width of the sidebar */
-  background-color: #000000; /* Grey background color */
-  padding: 20px; /* Some padding */
+  flex: 30%; 
+  background-color: #000000; 
+  padding: 20px; 
 }
 
-/* Main column */
+
 .main {
-  flex: 70%; /* Set the width of the main content */
-  background-color: rgb(0, 0, 0); /* White background color */
-  padding: 20px; /* Some padding */
+  flex: 70%; 
+  background-color: rgb(0, 0, 0); 
+  padding: 20px; 
 }
 
-/* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 700px) {
   .row {
     flex-direction: column;
   }
 }
 
-/* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+
 @media screen and (max-width: 400px) {
   .navbar a {
     float: none;
@@ -93,8 +87,62 @@ body{
   }
 }
 .footer {
-  padding: 20px; /* Some padding */
-  text-align: center; /* Center text*/
-  background: hsl(0, 78%, 23%); /* Grey background */
+  padding: 20px;
+  text-align: center;
+  background: hsl(0, 78%, 23%); 
   color: 	rgb(255,215,0);
+}
+.slides{
+  display: none;
+}
+.slides>img{
+  width: 100%;
+}
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 40px;
+  transition: 0.6s ease;
+  border-radius: 0 6px 6px 0;
+  user-select: none;
+}
+.next {
+  right: 0;
+  border-radius: 6px 0 0 6px;
+}
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+.slideshow {
+  max-width: 750px;
+  position: relative;
+  margin: auto;
+}
+.number {
+  color: #f2f2f2;
+  font-size: 18px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+.active, .dot:hover {
+  background-color: #717171;
 }

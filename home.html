@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="home.css">
+    <script src="slideshow.js"></script>
     <title>Bora Bora</title>
 </head>
 <body>
@@ -23,7 +24,24 @@
     </div>
     <div class="row">
         <div class="side">...</div>
-        <div class="main">...</div>
+        <div class="main">
+            <div class="slideshow">
+                <div class="slides">
+                    <img src="img1.jpg" alt="poza1">
+                    <div class="number">1 / 2</div>
+                </div>
+                <div class="slides">
+                    <img src="img2.jpg" alt="poza2">
+                    <div class="number">2 / 2</div>
+                </div>
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            </div>
+            <div style="text-align:center">
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+            </div>
+        </div>
     </div>
     <div class="footer">
         <h2>Footer</h2>

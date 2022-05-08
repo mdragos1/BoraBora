@@ -88,27 +88,4 @@ html{
   }
   .footer>a>img{
     max-width:30px;
-  }
-  
-  .main>h1{
-    color: 	#ab854e;
-   
-  }
-
-  .main{
-    text-align: center;
-  }
-  .columns{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-  .event>h3{
-    color: 	#ab854e;
-  }
-  .event>p{
-    color: #cccccc;
-  }
-  /* .event{
-     width: 30vw;
-     margin: 0%;
-  } */
+  }  

@@ -78,7 +78,6 @@ body{
 }
 .footer {
     width: 100%;
-    padding: 20px;
     text-align: center;
     background: #191919; 
     color: 	#ab854e;
@@ -103,6 +102,7 @@ body{
     flex: 1;
     float: left;
     padding: 2%;
+    padding-left: 5%;
 }
 
 #text1>hr{
@@ -126,7 +126,6 @@ body{
     flex: 1;
     float: right;
     padding: 2%;
-    
 }
 #poza1>img{
     max-height: 40vh;
@@ -145,6 +144,7 @@ body{
     flex: 1;
     float: right;
     padding: 2%;
+    padding-right: 5%;
 }
 
 #text2>hr{
@@ -177,3 +177,46 @@ body{
 }
 
 
+#text3>h2{
+    font-family: Arial, Helvetica, sans-serif;
+    color: #ab854e;
+    
+}
+.join{
+    display: flex
+}
+
+#text3{
+    flex: 1;
+    float: left;
+    padding: 2%;
+    padding-left: 5%;
+  
+}
+
+#text3>hr{
+    color: #ab854e;
+    height: 0.5%;
+    background-color: #ab854e;
+    border:0;
+    width: 50%;
+    float: left;
+}
+#text3>p{
+    color: #bfbfbf;
+    font-size:x-large;
+    margin:0;
+    font-family: Arial, Helvetica, sans-serif;
+    float: right;
+    text-align: justify;
+}
+
+#poza3{
+    flex: 1;
+    float: right;
+    padding: 2%;    
+}
+#poza3>img{
+    max-height: 40vh;
+    margin-top: 5vh;
+}

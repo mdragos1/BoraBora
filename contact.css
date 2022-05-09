@@ -26,6 +26,7 @@ html{
     margin: 0%;
     text-align: center;
     padding: 6vh 0 6vh 0;
+    font-style: italic;
   }
   .header>img{
     /* padding: 0 0 1.25vh 0; */
@@ -88,4 +89,35 @@ html{
   }
   .footer>a>img{
     max-width:30px;
-  }  
+  }
+  .main > h1{
+    color: 	#ab854e;
+    text-align: center;
+  }
+  .contact{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .date > p{
+    color: #d0d0d0;;
+  }
+  .title >p{
+    color: rgb(255, 255, 255);
+    font-size: 30px;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  }
+  .date > a{
+    text-decoration: none;
+    color: #ec4858;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  }
+  .date{
+    padding: 2vw;
+    padding-top: 1vw;
+    padding-bottom: 1vw;
+    margin: 4vw;
+    margin-top: 1vw;
+    margin-bottom: 1vw;
+    background-color: #191919;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  }

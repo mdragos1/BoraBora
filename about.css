@@ -25,6 +25,7 @@ body{
     margin: 0%;
     text-align: center;
     padding: 6vh 0 6vh 0;
+    font-style: italic;
 }
 .header>img{
     /* padding: 0 0 1.25vh 0; */

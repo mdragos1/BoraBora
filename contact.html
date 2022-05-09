@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="contact.css">
-    <!-- <script src="slideshow.js"></script> -->
+    <script src="submit.js"></script>
     <title>Bora Bora</title>
 </head>
 <body>
@@ -56,7 +56,21 @@
         <h1>Fa o rezervare<hr></h1>
         <div class="reservation">
             <form>
-                <input type="name" placeholder="Email..." name="email" required/>
+                <input type="name" placeholder="Nume" name="name" required class="reservationform"/>
+                <input type="email" placeholder="Email" name="email" required class="reservationform"/>
+                <input type="phone" placeholder="Numar Telefon" name="phone" required class="reservationform"/>
+                <input type="date" placeholder="Data" name="date" required class="reservationform"/>
+                <input type="number" placeholder="1" value="1" name="number" required class="reservationform"/>
+                <div id="tabletype">
+                    <p>Alege tipul de masa:</p>
+                    <div id="type">
+                    <input type="radio" name="table" id="regular" value="regular" required/>
+                    <label for="regular">Regular</label>
+                    <input type="radio" name="table" id="vip" value="vip" required/>
+                    <label for="vip">VIP</label>
+                    </div>
+                </div>                
+                <input type="submit" id="submit"/>
             </form>
         </div>
     </div>

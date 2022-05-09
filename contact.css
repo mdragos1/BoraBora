@@ -61,6 +61,7 @@ html{
     text-align: center; 
     padding: 14px 20px;
     text-decoration: none; 
+    font-family: Arial, Helvetica, sans-serif;
   }
   
   .navbar a.right {
@@ -92,8 +93,22 @@ html{
   }
   .main > h1{
     color: 	#ab854e;
-    text-align: center;
+    text-align: left;
+    margin: 4vw;
+    margin-top: 1vw;
+    margin-bottom: 1vw;
+    display: flex;
+    flex-direction: column;
   }
+  
+  .main > h1>hr{
+    background-color: #ab854e;
+    width: 30vw;
+    height: .1vw;
+    margin-left: 0;
+    border: 0;
+  }
+
   .contact{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;

@@ -12,7 +12,7 @@ function handleSubmit(event){
         window.alert('Numar invalid');
         document.location.reload();
     }
-    //window.alert(numberOfPersons+" "+date+" "+phone+" "+email+" "+name + "       "+ tableType);
+    window.alert(numberOfPersons+" "+date+" "+phone+" "+email+" "+name + "       "+ tableType);
     console.log(tableType);
     event.preventDefault();
 }

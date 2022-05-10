@@ -1,0 +1,22 @@
+{
+  "name": "borabora",
+  "version": "1.0.0",
+  "description": "",
+  "main": "slideshow.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mdragos1/BoraBora.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mdragos1/BoraBora/issues"
+  },
+  "homepage": "https://github.com/mdragos1/BoraBora#readme",
+  "devDependencies": {
+    "express": "^4.18.1"
+  }
+}

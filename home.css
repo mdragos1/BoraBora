@@ -12,7 +12,7 @@ body{
 .content{
   flex: 1;
 }
-/* .dropdown-content {
+.dropdown-content {
   display: none;
   position: absolute;
   background-color: #f1f1f1;
@@ -20,7 +20,9 @@ body{
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
 }
-.dropdown :hover .dropdown-content {display: block;} */
+.dropdown :hover >.dropdown-content {
+  display: block;
+border: #ab854e 30px solid;}
 
 .header {
   top: 0%;
@@ -69,6 +71,12 @@ body{
   padding: 14px 20px;
   text-decoration: none; 
   font-family: Arial, Helvetica, sans-serif;
+}
+.navbar>.dropdown{
+  float: left;
+  display: flex;
+  flex-direction: column; 
+  color: #ab854e;
 }
 
 

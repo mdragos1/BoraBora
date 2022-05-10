@@ -11,8 +11,26 @@ function handleSubmit(event){
     if(phoneNumberFormat.test(phone) == false){
         window.alert('Numar invalid');
         document.location.reload();
+        return;
     }
-    window.alert(numberOfPersons+" "+date+" "+phone+" "+email+" "+name + "       "+ tableType);
+    let string = numberOfPersons+" "+date+" "+phone+" "+email+" "+name + "       "+ tableType;
+    window.alert(string);
+    let confirmation =  document.createElement('div');
+    
+    confirmation.innerText=string;
+    confirmation.style.position = "absolute";
+    confirmation.style.zIndex = "3";
+    confirmation.style.padding = "3%";
+    confirmation.style.backgroundColor = "white";
+    confirmation.style.margin = "auto";
+    confirmation.style.borderColor= "gold";
+    confirmation.style.borderStyle= "solid";
+    confirmation.style.borderWidth="6px";
+    confirmation.style.width = "25%";
+    console.log('cv');
+    const main = document.getElementById('niam');
+    main.prepend(confirmation);
+    
     console.log(tableType);
     event.preventDefault();
 }

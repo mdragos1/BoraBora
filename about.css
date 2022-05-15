@@ -13,28 +13,33 @@ body{
   
 .header {
     top: 0%;
-    background: #191919; 
-    color: 	#ab854e; 
-    font-family: Arial, Helvetica, sans-serif;
-    /* position: sticky; */
-    width: 100%;
-    z-index: 1;  
+      background: #191919; 
+      color: 	#ab854e; 
+      font-family: Arial, Helvetica, sans-serif;
+      /* position: sticky; */
+      width: 100%;
+      z-index: 1;
+      display: flex;
       
-}
-.header>h2 {
+  }
+  .header>h2 {
+    flex: 89%;
     margin: 0%;
     text-align: center;
     padding: 6vh 0 6vh 0;
     font-style: italic;
-}
-.header>img{
+    text-decoration:underline;
+    text-decoration-color: #191919;
+    text-decoration-thickness: 3px;
+  }
+  .header>img{
     /* padding: 0 0 1.25vh 0; */
-    
-    float: left;
-    margin-left:2.5vw;
-    width: 10%;
+    flex: 11%;
+    /* float: left;
+    margin-left:2.5vw; */
+    /* width: 10%; */
     min-width: 100px;
-}
+  }
   
 .header h1 {
     font-size: 40px;

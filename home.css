@@ -20,8 +20,8 @@ body{
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
 }
-.dropdown :hover >.dropdown-content {
-  display: block;
+.dropdown:hover >.dropdown-content {
+  display: none;
 border: #ab854e 30px solid;}
 
 .header {
@@ -32,20 +32,25 @@ border: #ab854e 30px solid;}
     /* position: sticky; */
     width: 100%;
     z-index: 1;
+    display: flex;
     
 }
 .header>h2 {
+  flex: 89%;
   margin: 0%;
   text-align: center;
   padding: 6vh 0 6vh 0;
   font-style: italic;
+  text-decoration:underline;
+  text-decoration-color: #191919;
+  text-decoration-thickness: 3px;
 }
 .header>img{
   /* padding: 0 0 1.25vh 0; */
-  
-  float: left;
-  margin-left:2.5vw;
-  width: 10%;
+  flex: 11%;
+  /* float: left;
+  margin-left:2.5vw; */
+  /* width: 10%; */
   min-width: 100px;
 }
 

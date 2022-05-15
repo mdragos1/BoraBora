@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/menu.css">
+    <!-- <script src="slideshow.js"></script> -->
     <script src="css/text.js"></script>
     <title>Bora Bora</title>
 </head>
@@ -25,9 +26,17 @@
         <a href="#" class="right">Sign up</a>
     </div>
     <div class="main">
-        <h1>Meniu<hr></h1>
+        <div id="menuButton">
+            <h1>Meniu<hr></h1>
+            <div id="options">
+                <a href="#softdrinks"> Soft Drinks</a>
+                <a href="#bere"> Bere</a>
+                <a href="#sampanie"> Sampanie</a>
+                <a href="#shoturi"> Shoturi</a>
+            </div>
+        </div>
         <div class="menu">
-            <div class="submenu">
+            <div class="submenu" id="softdrinks">
                 <h2>Soft Drinks<hr></h2>
                <div class="line">
                 <p class="product"><b>Dorna Plata/Minerala 500 ml</b></p>
@@ -60,7 +69,7 @@
             </div>
         </div>
         <div class="menu">
-            <div class="submenu">
+            <div class="submenu" id="bere">
                 <h2>Bere<hr></h2>
                 <div class="line">
                     <p class="product"><b>Ursus 330 ml</b></p>
@@ -101,7 +110,7 @@
             </div>
         </div>
         <div class="menu">
-            <div class="submenu">
+            <div class="submenu" id="sampanie">
                 <h2>Spumant / Sampanie<hr></h2>
                 <div class="line">
                     <p class="product"><b>Proseco 750 ml</b></p>
@@ -138,7 +147,7 @@
             </div>
         </div>
         <div class="menu">
-            <div class="submenu">
+            <div class="submenu" id="shoturi">
                 <h2>Shoturi<hr></h2>
                 <div class="line">
                     <p class="product"><b>B52/Kamikaze/Red Line/Passport to Hell/Blow Job 40 ml</b></p>

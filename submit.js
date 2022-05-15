@@ -1,4 +1,5 @@
 function handleSubmit(event){
+    console.log(event.target);
     const phoneNumberFormat=/^(07)(\d{8})$/;
     const name = document.querySelector('[name="name"]').value;
     const email = document.querySelector('[name="email"]').value;
@@ -13,30 +14,30 @@ function handleSubmit(event){
         document.location.reload();
         return;
     }
-    let string = numberOfPersons+" "+date+" "+phone+" "+email+" "+name + "       "+ tableType;
-    window.alert(string);
-    let confirmation =  document.createElement('div');
+    // let string = numberOfPersons+" "+date+" "+phone+" "+email+" "+name + "       "+ tableType;
+    // window.alert(string);
+    // let confirmation =  document.createElement('div');
     
-    confirmation.innerText=string;
-    confirmation.style.position = "absolute";
-    confirmation.style.zIndex = "3";
-    confirmation.style.padding = "3%";
-    confirmation.style.backgroundColor = "white";
-    confirmation.style.margin = "auto";
-    confirmation.style.borderColor= "gold";
-    confirmation.style.borderStyle= "solid";
-    confirmation.style.borderWidth="6px";
-    confirmation.style.width = "25%";
-    console.log('cv');
-    const main = document.getElementById('niam');
-    main.prepend(confirmation);
+    // confirmation.innerText=string;
+    // confirmation.style.position = "absolute";
+    // confirmation.style.zIndex = "3";
+    // confirmation.style.padding = "3%";
+    // confirmation.style.backgroundColor = "white";
+    // confirmation.style.margin = "auto";
+    // confirmation.style.borderColor= "gold";
+    // confirmation.style.borderStyle= "solid";
+    // confirmation.style.borderWidth="6px";
+    // confirmation.style.width = "25%";
+    // console.log('cv');
+    // const main = document.getElementById('niam');
+    // main.prepend(confirmation);
     
-    console.log(tableType);
-    event.preventDefault();
+    // console.log(tableType);
+    //event.preventDefault();
 }
 
 function init(){
     document.addEventListener('submit', handleSubmit);
 }
 
-// window.addEventListener("load", init);
+window.addEventListener("load", init);

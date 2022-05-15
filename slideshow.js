@@ -50,4 +50,4 @@ function init(){
         dots[i].addEventListener('click', function(){currentSlide(i+1);});
     }
 }
- window.onload = init;
+window.addEventListener("load", init);

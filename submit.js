@@ -39,4 +39,4 @@ function init(){
     document.addEventListener('submit', handleSubmit);
 }
 
-window.onload = init;
+// window.addEventListener("load", init);

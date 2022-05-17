@@ -44,17 +44,24 @@ function createPopup(n, color, rect) {
     link.style.left="0";
     link.style.color = color;
 
-    div.addEventListener('click',()=>{window.open('/events'); onClickDelete;});
-
+    div.addEventListener('click',()=>{window.open('/events');
+     onClickDelete();
+    });
+    document.addEventListener('keydown',(event)=>{
+        if(event.key == 'Escape'){
+            onClickDelete();
+        }else{return;}
+    });
     const button=document.createElement('button');
     button.classList.add("btn");
     div.appendChild(button);
     // button.style.position="absolute"
     button.innerHTML="Close"; 
     button.addEventListener("click", onClickDelete);
+
 }
 function onClickDelete(event){
-    var a = document.getElementById("popup");
+    let a = document.getElementById("popup");
     a.remove();
     event.stopPropagation();
 }

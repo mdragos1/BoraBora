@@ -2,20 +2,24 @@
 function init(){
     //console.log(background);
     let background = document.getElementById('edis');
-    let backgroundColor = getComputedStyle(background).backgroundColor;
+    let color = getComputedStyle(background).color;
     let events = document.getElementsByClassName('eventContainer');
     console.log(events[0]);
     for(let i=0; i<3; i++){
-        events[i].addEventListener('click', function(){createPopup(i, backgroundColor);});
+        let rect = events[i].getBoundingClientRect();
+        events[i].addEventListener('click', function(){createPopup(i, color, rect);});
     }
 }
 
-function createPopup(n, backgroundColor) {
+function createPopup(n, color, rect) {
     const div = document.createElement('div');
     document.body.appendChild(div);
     div.classList.add("popup")
     div.setAttribute("id", "popup");
-
+    console.log(rect);
+    div.style.width = `${rect.width}px`;
+    div.style.left = `${rect.left}px`;
+    console.log(div.style.width);
     const text = document.createElement('div');
     div.appendChild(text);
     console.log(n);
@@ -35,17 +39,18 @@ function createPopup(n, backgroundColor) {
     link.href="events";
     link.style.width="100%";
     link.style.height="100%";
-    link.style.position= "absolute";
+    // link.style.position= "absolute";
     link.style.top="0";
     link.style.left="0";
-    link.style.backgroundColor = backgroundColor;
+    link.style.color = color;
+
+    div.addEventListener('click',()=>{window.open('/events'); onClickDelete;});
 
     const button=document.createElement('button');
     button.classList.add("btn");
     div.appendChild(button);
-    button.style.position="absolute"
+    // button.style.position="absolute"
     button.innerHTML="Close"; 
-
     button.addEventListener("click", onClickDelete);
 }
 function onClickDelete(event){

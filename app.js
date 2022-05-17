@@ -25,11 +25,14 @@ app.get('/contact',function(req,res) {
     res.sendFile('contact.html', {root: path.join(__dirname)});
 });
 
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname));
+
 app.post('/contact', function (req, res) {
     const { name, email, phone, date, number, table} = req.body;
     const time = new Date(date).getTime() - Date.now();
     const timeDays = Math.floor(time / (1000 * 60 * 60 * 24));
-    res.send(`Salut, ${name}! Rezervarea ta a  fost inregistrata cu succes. Te asteptam cu drag in ${timeDays} zile.`);
+    res.render('template.ejs' ,{name, timeDays});
 });
 
 app.use('/css', express.static(path.join(__dirname)));

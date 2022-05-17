@@ -275,3 +275,39 @@ border: #ab854e 30px solid;}
   margin-left: 6vw;
   margin-right: 6vw;
 }
+
+.popup {
+  display: block;
+  width: 25vw;
+  height: 25vh;
+  position: fixed;
+  background-color: #191919;
+  margin-left: 37.5vw;
+  margin-top: 30vh;
+  color: #ddd;
+  border-radius: 20px;
+  box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.2), 12px 12px 20px 12px rgba(0, 0, 0, 0.19);
+
+}
+.btn {
+  padding: 5px 10px;
+  font-size: 18px;
+  margin-left: 36%; 
+  border: solid 2px;
+  margin-top: 10px;
+  border-radius: 10px;
+  display: inline-block;
+  text-transform: uppercase;
+  line-height: 1.4;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  text-decoration: none;
+  color: #191919;
+  text-align: center;
+}
+.btn:hover {
+  background-color: #ab854e;
+  color: #ddd;
+  transition: 0.3s;
+}

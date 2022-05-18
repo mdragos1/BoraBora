@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/template.css">
     <script src="css/text.js"></script>
+    <script src="css/reservation.js"></script>
     
     <title>Bora Bora</title>
 </head>
@@ -19,7 +20,7 @@
     <div class="navbar">
         <a href="\home">Acasa</a>
         <a href="\about">Despre</a>
-        <a href="events.html" id="eventmenu">Evenimente</a>
+        <a href="events" id="eventmenu">Evenimente</a>
         <a href="\menu">Meniu</a>
         <a href="\contact">Contact</a>
         <% if(user){ %>
@@ -32,7 +33,7 @@
         <%}%>
     </div>
     <div class="main">
-        <h1>Ciao barosane! Contul tau de pe cel mai fita site s-a creat cu succes cu adresa de mail: <%= email %>. Hai noroc!</h1>
+        <h1 id="text"></h1>
     </div>
     </div>
     <div class="footer">

@@ -22,7 +22,7 @@
         <a href="\contact">Contact</a>
         <% if(user){ %>
             <a href="/logout" class="right">Logout</a>
-            <a class="right"><%= user.email %></a>
+            <a href="/myaccount" class="right"><%= user.email %></a>
             
         <%} else {%>
             <a href="/login" class="right">Log in </a>

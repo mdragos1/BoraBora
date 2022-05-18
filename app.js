@@ -20,13 +20,22 @@ app.get('/events',function(req,res) {
     res.render('events.ejs' , {user:sesion});
 });
 
+app.get('/myaccount',function(req,res) {
+    res.render('reservation.ejs' , {user:sesion});
+});
+
 app.get('/menu',function(req,res) {
     res.render('menu.ejs' , {user:sesion});
+});
+
+app.get('/reservations',function(req,res) {
+    res.sendFile('reservations.json', {root: path.join(__dirname)});
 });
 
 app.get('/signup',function(req,res) {
     res.sendFile('signup.html', {root: path.join(__dirname)});
 });
+
 app.get('/login',function(req,res) {
     res.sendFile('login.html', {root: path.join(__dirname)});
 });
@@ -45,13 +54,38 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname));
 
 app.post('/contact', function (req, res) {
+    let reservationDetails;
+    if (fs.existsSync("reservations.json")){
+        console.log('exista');
+        let data = fs.readFileSync("reservations.json");
+        reservationDetails=JSON.parse(data);
+    }else{
+        reservationDetails=[];
+    }
     const phoneNumberFormat=/^(07)(\d{8})$/;
-    let { name, email, phone, date, number, table} = req.body;
+    let details = { name, email, phone, date, number, table} = req.body;
     if(phoneNumberFormat.test(phone) == true){
-        const time = new Date(date).getTime() - Date.now();
-        const timeDays = Math.floor(time / (1000 * 60 * 60 * 24));
-        reservation.push(req.body);
-        res.render('template.ejs' ,{name, timeDays});
+        let reservationDone = false;
+        reservationDetails.forEach(element => {
+            if(email == element['email'] && date == element['date']){
+                reservationDone = true;
+                return;
+            }
+        });
+        if(reservationDone == true){
+            return;
+        }else{
+            reservationDetails.push(details);
+            fs.writeFile('reservations.json',JSON.stringify(reservationDetails),(err) => {
+            if (err) {
+                throw err;
+            }
+            });
+            const time = new Date(date).getTime() - Date.now();
+            const timeDays = Math.floor(time / (1000 * 60 * 60 * 24));
+            reservation.push(req.body);
+            res.render('template.ejs' ,{user:sesion, name, timeDays}); 
+        }
     }
    
 });

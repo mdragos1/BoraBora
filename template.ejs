@@ -19,19 +19,17 @@
     <div class="navbar">
         <a href="\home">Acasa</a>
         <a href="\about">Despre</a>
-        <div class="dropdown">
-            <a href="\events" id="eventmenu">Evenimente</a>
-            <div class="dropdown-content">
-                <a href="#">Link 1</a>
-                <a href="#">Link 2</a>
-                <a href="#">Link 3</a>
-            </div>
-        </div>
-        <!-- <a href="events.html" id="eventmenu">Evenimente</a> -->
+        <a href="events" id="eventmenu">Evenimente</a>
         <a href="\menu">Meniu</a>
         <a href="\contact">Contact</a>
-        <a href="#" class="right">Log in </a>
-        <a href="#" class="right">Sign up</a>
+        <% if(user){ %>
+            <a href="/logout" class="right">Logout</a>
+            <a href="/myaccount" class="right"><%= user.email %></a>
+            
+        <%} else {%>
+            <a href="/login" class="right">Log in </a>
+            <a href="/signup" class="right">Sign up</a>
+        <%}%>
     </div>
     <div class="main">
         <h1>Salut, <%= name %> ! Rezervarea ta a  fost inregistrata cu succes. Te asteptam cu drag in <%= timeDays %> zile.</h1>

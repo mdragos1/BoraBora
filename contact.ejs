@@ -22,8 +22,14 @@
         <a href="\events">Evenimente</a>
         <a href="\menu">Meniu</a>
         <a href="\contact">Contact</a>
-        <a href="/login" class="right">Log in </a>
-        <a href="/signup" class="right">Sign up</a>
+        <% if(user){ %>
+            <a href="/logout" class="right">Logout</a>
+            <a class="right"><%= user.email %></a>
+            
+        <%} else {%>
+            <a href="/login" class="right">Log in </a>
+            <a href="/signup" class="right">Sign up</a>
+        <%}%>
     </div> 
     <div class="main" id="niam">
         <h1>Contacteaza-ne<hr></h1>
@@ -54,26 +60,31 @@
                 <p>Uber sau Limuzina</p>
             </div>
         </div>
-        <h1>Fa o rezervare<hr></h1>
-        <div class="reservation">
-            <form method="post">
-                <input type="name" placeholder="Nume" name="name" required class="reservationform"/>
-                <input type="email" placeholder="Email" name="email" required class="reservationform"/>
-                <input type="phone" placeholder="Numar Telefon" name="phone" required class="reservationform"/>
-                <input type="date" placeholder="Data" name="date" required class="reservationform"/>
-                <input type="number" placeholder="1" value="1" name="number" required class="reservationform"/>
-                <div id="tabletype">
-                    <p>Alege tipul de masa:</p>
-                    <div id="type">
-                    <input type="radio" name="table" id="regular" value="regular" required/>
-                    <label for="regular">Regular</label>
-                    <input type="radio" name="table" id="vip" value="vip" required/>
-                    <label for="vip">VIP</label>
-                    </div>
-                </div>                
-                <input type="submit" id="submit"/>
-            </form>
-        </div>
+        <% if(user){ %>
+            <h1>Fa o rezervare!<hr></h1>
+            <div class="reservation">
+                <form method="post">
+                    <input type="name" placeholder="Nume" name="name" required class="reservationform"/>
+                    <input type="email" placeholder="Email" name="email" required class="reservationform"/>
+                    <input type="phone" placeholder="Numar Telefon" name="phone" required class="reservationform"/>
+                    <input type="date" placeholder="Data" name="date" required class="reservationform"/>
+                    <input type="number" placeholder="1" value="1" name="number" required class="reservationform"/>
+                    <div id="tabletype">
+                        <p>Alege tipul de masa:</p>
+                        <div id="type">
+                            <input type="radio" name="table" id="regular" value="regular" required/>
+                            <label for="regular">Regular</label>
+                            <input type="radio" name="table" id="vip" value="vip" required/>
+                            <label for="vip">VIP</label>
+                        </div>
+                    </div>                
+                    <input type="submit" id="submit"/>
+                </form>
+            </div>  
+        <%} else {%>
+            <h1>Conecteaza-te pentru a putea face o rezervare!<hr></h1>
+        <%}%>
+        
     </div>
     </div>
     <div class="footer">

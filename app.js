@@ -9,7 +9,7 @@ let reservation=[];
 let sesion = null;
 
 app.get('/about',function(req,res) {
-    res.sendFile('about.html', {root: path.join(__dirname)});
+    res.render('about.ejs' , {user:sesion});
 });
 
 app.get('/home',function(req,res) {
@@ -17,11 +17,11 @@ app.get('/home',function(req,res) {
 });
 
 app.get('/events',function(req,res) {
-    res.sendFile('events.html', {root: path.join(__dirname)});
+    res.render('events.ejs' , {user:sesion});
 });
 
 app.get('/menu',function(req,res) {
-    res.sendFile('menu.html', {root: path.join(__dirname)});
+    res.render('menu.ejs' , {user:sesion});
 });
 
 app.get('/signup',function(req,res) {
@@ -30,11 +30,15 @@ app.get('/signup',function(req,res) {
 app.get('/login',function(req,res) {
     res.sendFile('login.html', {root: path.join(__dirname)});
 });
+app.get('/logout',function(req,res) {
+    res.sendFile('logout.html', {root: path.join(__dirname)});
+    sesion = null;
+});
 
 app.use(bodyParser.urlencoded({ extended: false }))
 
 app.get('/contact',function(req,res) {
-    res.sendFile('contact.html', {root: path.join(__dirname)});
+    res.render('contact.ejs' , {user:sesion});
 });
 
 app.set('view engine', 'ejs');
@@ -108,7 +112,7 @@ app.post('/login',function(req,res){
 app.use('/css', express.static(path.join(__dirname)));
 
 app.use((req, res, next) => {
-    res.status(404).sendFile("404.html", {root: path.join(__dirname)});
+    res.status(404).render('404.ejs' , {user:sesion});
 });
 
 app.listen(3004);

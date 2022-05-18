@@ -21,6 +21,8 @@
   },
   "dependencies": {
     "body-parser": "^1.20.0",
-    "ejs": "^3.1.8"
+    "ejs": "^3.1.8",
+    "file-system": "^2.2.2",
+    "formidable": "^2.0.1"
   }
 }

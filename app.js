@@ -54,29 +54,51 @@ app.post('/contact', function (req, res) {
 app.post('/signup',function(req,res){
     let userDetails;
     console.log(fs.existsSync("accounts.json"))
-  if (fs.existsSync("accounts.json")){
-      console.log('exista');
+    if (fs.existsSync("accounts.json")){
+        console.log('exista');
+        let data = fs.readFileSync("accounts.json");
+        userDetails=JSON.parse(data);
+    }else{
+        userDetails=[];
+    }
+    let emailTaken = false;
+    const details = {email, password} = req.body;
+    userDetails.forEach(element => {
+        if(email == element['email']){
+            emailTaken = true;
+            return;
+        }
+    });
+    if (emailTaken == true){
+        console.log('Exista deja un cont asociat cu aceasta adresa de mail! Incearca din nou!');
+        res.sendFile('/signupagain.html', {root: path.join(__dirname)})
+    }else{
+        userDetails.push(details);
+        fs.writeFile('accounts.json',JSON.stringify(userDetails),(err) => {
+            if (err) {
+                throw err;
+            }
+        console.log("JSON data is saved.");
+        });
+        res.render('signupwelcome.ejs' ,{email});
+    }
+});
+
+app.post('/login',function(req,res){
+    let userDetails;
     let data = fs.readFileSync("accounts.json");
     userDetails=JSON.parse(data);
-  }else{
-    userDetails=[];
-  }
-
-  const details = {email, password} = req.body;
-  //   userDetails.forEach(element => {
-  //       console.log(element[0]);
-  //   });
-  userDetails.push(details);
-  fs.writeFile('accounts.json',JSON.stringify(userDetails),(err) => {
-    if (err) {
-        throw err;
+    const details = {email, password} = req.body;
+    let signin = false;
+    userDetails.forEach(element => {
+        if(email == element['email'] && password == element['password']){
+            signin = true;
+            return;
+        }
+    });
+    if(signin==true){
+        res.render('loginwelcome.ejs' ,{email});
     }
-    console.log("JSON data is saved.");
-  });
-  let name = email;
-  let timeDays = password;
-  res.render('template.ejs' ,{name, timeDays});
-//   res.render('Rezervari_realizate.ejs' ,{firstname, lastname, email, nr, data_sosire, data_plecare, camera, guests, requests});
 });
 
 app.use('/css', express.static(path.join(__dirname)));

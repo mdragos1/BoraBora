@@ -8,36 +8,37 @@ function handleSubmit(event){
     const numberOfPersons = document.querySelector('[name="number"]').value;
 
     const tableType = document.querySelector('[name="table"]:checked').value;
-    
     if(phoneNumberFormat.test(phone) == false){
-        window.alert('Numar invalid');
+        let mesaj="";
+        if(event.target.tagName == 'FORM'){
+            mesaj = "Acest " + event.target.id + " nu poate fi completat! Numar invalid!";
+        }else
+            mesaj = "Numar invalid!";
+        window.alert(mesaj);
         document.location.reload();
+        event.preventDefault();
         return;
     }
-    // let string = numberOfPersons+" "+date+" "+phone+" "+email+" "+name + "       "+ tableType;
-    // window.alert(string);
-    // let confirmation =  document.createElement('div');
-    
-    // confirmation.innerText=string;
-    // confirmation.style.position = "absolute";
-    // confirmation.style.zIndex = "3";
-    // confirmation.style.padding = "3%";
-    // confirmation.style.backgroundColor = "white";
-    // confirmation.style.margin = "auto";
-    // confirmation.style.borderColor= "gold";
-    // confirmation.style.borderStyle= "solid";
-    // confirmation.style.borderWidth="6px";
-    // confirmation.style.width = "25%";
-    // console.log('cv');
-    // const main = document.getElementById('niam');
-    // main.prepend(confirmation);
-    
-    // console.log(tableType);
-    //event.preventDefault();
+}
+
+function minDate(){
+    let today = new Date();
+    let dd = today.getDate();
+    let mm = today.getMonth()+1;
+    let yyyy = today.getFullYear();
+    if(dd<10){
+        dd='0'+dd
+    } 
+    if(mm<10){
+        mm='0'+mm
+    } 
+    today = yyyy+'-'+mm+'-'+dd;
+    document.getElementById("datefield").setAttribute("min", today);
 }
 
 function init(){
-    document.addEventListener('submit', handleSubmit);
+    minDate();
+    document.addEventListener('submit',handleSubmit);
 }
 
-window.addEventListener("load", init);
+window.addEventListener("load",  init);

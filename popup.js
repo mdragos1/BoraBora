@@ -44,14 +44,10 @@ function createPopup(n, color, rect) {
     link.style.left="0";
     link.style.color = color;
 
-    div.addEventListener('click',()=>{window.open('/events');
-     onClickDelete();
+    div.addEventListener('click',(event)=>{window.open('/events');
+     onClickDelete(event);
     });
-    document.addEventListener('keydown',(event)=>{
-        if(event.key == 'Escape'){
-            onClickDelete();
-        }else{return;}
-    });
+    
     const button=document.createElement('button');
     button.classList.add("btn");
     div.appendChild(button);
@@ -60,10 +56,17 @@ function createPopup(n, color, rect) {
     button.addEventListener("click", onClickDelete);
 
 }
+document.addEventListener('keydown',(event)=>{
+    if(event.key == 'Escape'){
+        onClickDelete(event);
+    }else{return;}
+});
 function onClickDelete(event){
     let a = document.getElementById("popup");
     a.remove();
-    event.stopPropagation();
+    if(event.currentTarget.tagName == 'BUTTON'){
+        event.stopPropagation();
+    }
 }
 
 window.addEventListener("load", init);

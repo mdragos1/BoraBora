@@ -63,12 +63,12 @@
         <% if(user){ %>
             <h1>Fa o rezervare!<hr></h1>
             <div class="reservation">
-                <form method="post">
+                <form method="post" id="formular">
                     <input type="name" placeholder="Nume" name="name" required class="reservationform"/>
                     <input type="email" placeholder="Email" name="email" required class="reservationform"/>
                     <input type="phone" placeholder="Numar Telefon" name="phone" required class="reservationform"/>
-                    <input type="date" placeholder="Data" name="date" required class="reservationform"/>
-                    <input type="number" placeholder="1" value="1" name="number" required class="reservationform"/>
+                    <input type="date" placeholder="Data" name="date" id="datefield" required class="reservationform"/>
+                    <input type="number" placeholder="1" value="1" name="number" min="1" required class="reservationform"/>
                     <div id="tabletype">
                         <p>Alege tipul de masa:</p>
                         <div id="type">

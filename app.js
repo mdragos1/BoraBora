@@ -5,7 +5,6 @@ const bodyParser = require('body-parser');
 const fs = require('fs');
 const formidable=require('formidable');
 
-let reservation=[];
 let sesion = null;
 
 app.get('/about',function(req,res) {
@@ -83,7 +82,6 @@ app.post('/contact', function (req, res) {
             });
             const time = new Date(date).getTime() - Date.now();
             const timeDays = Math.floor(time / (1000 * 60 * 60 * 24));
-            reservation.push(req.body);
             res.render('template.ejs' ,{user:sesion, name, timeDays}); 
         }
     }
@@ -119,7 +117,8 @@ app.post('/signup',function(req,res){
             }
         console.log("JSON data is saved.");
         });
-        res.render('signupwelcome.ejs' ,{email});
+        sesion = details;
+        res.render('signupwelcome.ejs' ,{user:sesion, email});
     }
 });
 

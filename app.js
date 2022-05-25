@@ -3,28 +3,58 @@ const app = express();
 const path = require('path');
 const bodyParser = require('body-parser');
 const fs = require('fs');
-const formidable=require('formidable');
+const cookieParser = require("cookie-parser");
+const sessions = require('express-session');
 
-let sesion = null;
+let sesion;
 
-app.get('/about',function(req,res) {
-    res.render('about.ejs' , {user:sesion});
-});
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
+
+const oneDay = 1000 * 60 * 60 * 24;
+
+app.use(sessions({
+    secret: "thisismysecrctekeyfhrgfgrfrty84fwir767",
+    saveUninitialized:true,
+    cookie: { maxAge: oneDay },
+    resave: false
+}));
+
+app.get('/', (req,res)=>{
+    sesion=req.session;
+    res.redirect('/home');
+})
 
 app.get('/home',function(req,res) {
+    sesion=req.session;
     res.render('home.ejs' , {user:sesion});
 });
 
+app.get('/about',function(req,res) {
+    sesion=req.session;
+    res.render('about.ejs' , {user:sesion});
+});
+
 app.get('/events',function(req,res) {
+    sesion=req.session;
     res.render('events.ejs' , {user:sesion});
 });
 
-app.get('/myaccount',function(req,res) {
-    res.render('reservation.ejs' , {user:sesion});
+app.get('/menu',function(req,res) {
+    sesion=req.session;
+    res.render('menu.ejs' , {user:sesion});
 });
 
-app.get('/menu',function(req,res) {
-    res.render('menu.ejs' , {user:sesion});
+app.get('/contact',function(req,res) {
+    sesion=req.session;
+    res.render('contact.ejs' , {user:sesion});
+});
+
+app.get('/myaccount',function(req,res) {
+    sesion=req.session;
+    res.render('reservation.ejs' , {user:sesion});
 });
 
 app.get('/reservations',function(req,res) {
@@ -37,16 +67,6 @@ app.get('/signup',function(req,res) {
 
 app.get('/login',function(req,res) {
     res.sendFile('login.html', {root: path.join(__dirname)});
-});
-app.get('/logout',function(req,res) {
-    res.sendFile('logout.html', {root: path.join(__dirname)});
-    sesion = null;
-});
-
-app.use(bodyParser.urlencoded({ extended: false }))
-
-app.get('/contact',function(req,res) {
-    res.render('contact.ejs' , {user:sesion});
 });
 
 app.set('view engine', 'ejs');
@@ -117,7 +137,9 @@ app.post('/signup',function(req,res){
             }
         console.log("JSON data is saved.");
         });
-        sesion = details;
+        sesion=req.session;
+        console.log(sesion)
+        sesion.userid=req.body.email;
         res.render('signupwelcome.ejs' ,{user:sesion, email});
     }
 });
@@ -130,7 +152,10 @@ app.post('/login',function(req,res){
     let signin = false;
     userDetails.forEach(element => {
         if(email == element['email'] && password == element['password']){
-            sesion = details;
+
+            sesion=req.session;
+            console.log(sesion)
+            sesion.userid=req.body.email;
             signin = true;
             return;
         }
@@ -142,10 +167,17 @@ app.post('/login',function(req,res){
     }
 });
 
+app.get('/logout',(req,res) => {
+    req.session.destroy();
+    res.redirect("/home");
+});    
+
 app.use('/css', express.static(path.join(__dirname)));
 
 app.use((req, res, next) => {
     res.status(404).render('404.ejs' , {user:sesion});
 });
 
-app.listen(3004);
+app.listen(3004, '0.0.0.0', function() {
+    console.log('Listening to port:  ' + 3004);
+});

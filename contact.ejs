@@ -22,9 +22,9 @@
         <a href="\events">Evenimente</a>
         <a href="\menu">Meniu</a>
         <a href="\contact">Contact</a>
-        <% if(user){ %>
+        <% if(user.userid){ %>
             <a href="/logout" class="right">Logout</a>
-            <a href="/myaccount" class="right"><%= user.email %></a>
+            <a href="/myaccount" class="right"><%= user.userid %></a>
             
         <%} else {%>
             <a href="/login" class="right">Log in </a>
@@ -60,7 +60,7 @@
                 <p>Uber sau Limuzina</p>
             </div>
         </div>
-        <% if(user){ %>
+        <% if(user.userid){ %>
             <h1>Fa o rezervare!<hr></h1>
             <div class="reservation">
                 <form method="post" id="formular">

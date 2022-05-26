@@ -13,7 +13,22 @@ async function init(){
                 text+= `<br>`
             }
         });
-        div.innerHTML = text;
+        console.log(text);
+        if(text==""){
+            text +=`Nu ai inca o rezervare facuta! <br> Fa una chiar acum acum acessand butonul de mai jos!`;
+            let btn = document.createElement('button');
+            div.innerHTML = text;
+            btn.setAttribute('class','btn')
+            btn.innerHTML = "Rezervari";
+            btn.addEventListener('click',(event)=>{
+                window.location="/contact";
+            })
+            document.querySelector('.main').append(btn);
+            //div.append(btn);
+        }else{
+            div.innerHTML = text;
+        }
+        
     }catch(error){
         console.log(error);
     }

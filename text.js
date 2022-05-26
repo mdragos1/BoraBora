@@ -1,4 +1,14 @@
+async function cookies(){
+     res = await fetch('/login');
+     // get token from fetch request
+     const token = await res.json();
+     console.log("cookie din browser "+token);
+     // set token in cookie
+     document.cookie = `token=${token}`;
+}
+
 function init(){
+    cookies();
     let lastWasBlack=true;
     let header = document.getElementById('coloredText');
     header.textDecoration = "underline";

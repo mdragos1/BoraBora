@@ -120,3 +120,19 @@ html{
       text-align: center;
       color: #ab854e;
   }
+  .btn{
+    background-color: #191919;
+    color: #ab854e;
+    margin-left: 4vh;
+    margin-right: 4vh;
+    width: 8vw;
+    height: 3vw;
+    border-radius: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2.5vh;
+  }
+  .btn:hover{
+    background-color: #ab854e;
+    color: #ffffff;
+    transition: .75s ease;
+  }

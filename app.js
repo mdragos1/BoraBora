@@ -5,6 +5,22 @@ const bodyParser = require('body-parser');
 const fs = require('fs');
 const cookieParser = require("cookie-parser");
 const sessions = require('express-session');
+const jwt = require('jsonwebtoken');
+
+const dotenv = require('dotenv');
+
+
+// get config vars
+dotenv.config();
+
+// access config var
+process.env.TOKEN_SECRET;
+
+console.log(process.env.TOKEN_SECRET);
+
+function generateAccessToken(user) {
+    return jwt.sign(user, process.env.TOKEN_SECRET);
+}
 
 let sesion;
 
@@ -52,7 +68,7 @@ app.get('/contact',function(req,res) {
     res.render('contact.ejs' , {user:sesion});
 });
 
-app.get('/myaccount',function(req,res) {
+app.get('/myaccount', authenticateToken, function(req,res) {
     sesion=req.session;
     res.render('reservation.ejs' , {user:sesion});
 });
@@ -71,6 +87,8 @@ app.get('/login',function(req,res) {
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname));
+
+
 
 app.post('/contact', function (req, res) {
     let reservationDetails;
@@ -140,9 +158,13 @@ app.post('/signup',function(req,res){
         sesion=req.session;
         console.log(sesion)
         sesion.userid=req.body.email;
+        objectToken = generateAccessToken(sesion.userid);
+        res.cookie('Auth', objectToken);
         res.render('signupwelcome.ejs' ,{user:sesion, email});
     }
 });
+
+let objectToken;
 
 app.post('/login',function(req,res){
     let userDetails;
@@ -152,20 +174,43 @@ app.post('/login',function(req,res){
     let signin = false;
     userDetails.forEach(element => {
         if(email == element['email'] && password == element['password']){
-
             sesion=req.session;
+            
             console.log(sesion)
             sesion.userid=req.body.email;
             signin = true;
             return;
         }
     });
+    
     if(signin==true){
+        objectToken = generateAccessToken(sesion.userid);
+        res.cookie('Auth', objectToken);
         res.render('loginwelcome.ejs' , {user:sesion});
+      
     }else{
         res.sendFile('loginagain.html', {root: path.join(__dirname)})
     }
 });
+
+function authenticateToken(req, res, next) {
+   
+    //console.log(token);
+    const token = req.cookies['Auth'];
+
+    if (token == null) return res.sendStatus(401)
+  
+    jwt.verify(objectToken, process.env.TOKEN_SECRET, (err , email ) => {
+      console.log(err)
+  
+      if (err) return res.sendStatus(403);
+      console.log(email);
+      console.log(req);
+      req.email = email;
+  
+      next()
+    })
+  }
 
 app.get('/logout',(req,res) => {
     req.session.destroy();
@@ -175,9 +220,10 @@ app.get('/logout',(req,res) => {
 app.use('/css', express.static(path.join(__dirname)));
 
 app.use((req, res, next) => {
+    sesion=req.session;
     res.status(404).render('404.ejs' , {user:sesion});
 });
 
-app.listen(3004, '0.0.0.0', function() {
+app.listen(3004, function() {
     console.log('Listening to port:  ' + 3004);
 });
